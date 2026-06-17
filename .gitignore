@@ -13,6 +13,10 @@ node_modules/
 dist/
 build/
 
+# This repository is for backend deployment only.
+admin web/
+user web/
+
 # Environment files
 .env
 .env.*
