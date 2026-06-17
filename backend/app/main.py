@@ -7,7 +7,7 @@ from sqlalchemy.orm import Session
 from .database import Base, SessionLocal, engine, settings
 from .auth import hash_password
 from .models import AdminUser, Customer, Order, OrderItem, OrderStatus, Payment, PaymentStatus, Product, ProductStatus, ShopSettings
-from .routers import admin, admin_auth, ai, orders, products
+from .routers import admin, admin_auth, ai, facebook, orders, products
 
 ALLOWED_ORIGINS = [
     "http://localhost:3000",
@@ -30,6 +30,7 @@ app.include_router(orders.router)
 app.include_router(admin_auth.router)
 app.include_router(admin.router)
 app.include_router(ai.router)
+app.include_router(facebook.router)
 
 
 @app.get("/health")

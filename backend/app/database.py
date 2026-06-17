@@ -16,6 +16,10 @@ class Settings(BaseSettings):
     admin_password: str = "admin12345"
     openai_api_key: str | None = None
     openai_model: str = "gpt-5.5"
+    facebook_verify_token: str | None = None
+    facebook_page_access_token: str | None = None
+    facebook_app_secret: str | None = None
+    facebook_api_version: str = "v23.0"
 
     model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8", extra="ignore")
 
