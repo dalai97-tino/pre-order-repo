@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+
+<html class="light" lang="mn"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Financial &amp; Profit Analytics - Admin Panel</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed-variant": "#454748",
+                    "secondary-fixed": "#eaddff",
+                    "inverse-surface": "#27313f",
+                    "surface-container-low": "#eff4ff",
+                    "on-primary-container": "#dad7ff",
+                    "surface-dim": "#d0dbed",
+                    "on-error": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-fixed-dim": "#c5c7c8",
+                    "background": "#f8f9ff",
+                    "on-secondary-container": "#fffbff",
+                    "tertiary-fixed": "#e1e3e4",
+                    "on-surface": "#121c2a",
+                    "primary": "#3525cd",
+                    "secondary-container": "#8a4cfc",
+                    "on-surface-variant": "#464555",
+                    "tertiary-container": "#5e6061",
+                    "surface-variant": "#d9e3f6",
+                    "on-secondary-fixed-variant": "#5a00c6",
+                    "primary-fixed": "#e2dfff",
+                    "outline-variant": "#c7c4d8",
+                    "error": "#ba1a1a",
+                    "inverse-primary": "#c3c0ff",
+                    "error-container": "#ffdad6",
+                    "surface-container-high": "#dee9fc",
+                    "on-secondary-fixed": "#25005a",
+                    "surface-bright": "#f8f9ff",
+                    "on-tertiary-fixed": "#191c1d",
+                    "surface-tint": "#4d44e3",
+                    "surface": "#f8f9ff",
+                    "tertiary": "#46494a",
+                    "secondary-fixed-dim": "#d2bbff",
+                    "secondary": "#712ae2",
+                    "on-error-container": "#93000a",
+                    "on-secondary": "#ffffff",
+                    "on-primary-fixed-variant": "#3323cc",
+                    "primary-container": "#4f46e5",
+                    "outline": "#777587",
+                    "primary-fixed-dim": "#c3c0ff",
+                    "on-background": "#121c2a",
+                    "inverse-on-surface": "#eaf1ff",
+                    "on-primary-fixed": "#0f0069",
+                    "on-primary": "#ffffff",
+                    "surface-container-highest": "#d9e3f6",
+                    "surface-container": "#e6eeff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-container": "#dadbdc"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-md": "16px",
+                    "gutter": "24px",
+                    "stack-lg": "24px",
+                    "sidebar-width": "280px",
+                    "margin-mobile": "16px",
+                    "container-max": "1440px",
+                    "stack-sm": "8px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Inter"],
+                    "display-lg-mobile": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "body-md": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "headline-md": ["Inter"]
+            },
+            "fontSize": {
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "display-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #d1d5db;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #9ca3af;
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased">
+<div class="flex min-h-screen">
+<!-- SideNavBar -->
+<aside class="w-sidebar-width h-screen sticky top-0 left-0 bg-surface dark:bg-inverse-surface border-r border-outline-variant dark:border-outline flex flex-col z-50">
+<div class="p-6">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-primary-container rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container" data-icon="payments" style="font-variation-settings: 'FILL' 1;">payments</span>
+</div>
+<div>
+<h1 class="font-headline-md text-headline-md font-bold text-primary dark:text-inverse-primary leading-tight">Admin Panel</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant opacity-70">Pre-order System</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 px-3 space-y-1 overflow-y-auto">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-on-tertiary-fixed-variant hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-colors duration-200 rounded-lg group" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-body-md">Хянах самбар</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-on-tertiary-fixed-variant hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="font-body-md">Бараа бүтээгдэхүүн</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-on-tertiary-fixed-variant hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+<span class="font-body-md">Захиалга</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-on-tertiary-fixed-variant hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-body-md">Харилцагчид</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-secondary-container dark:bg-secondary-fixed-dim text-on-secondary-container dark:text-on-secondary-fixed-variant border-l-4 border-primary font-bold rounded-r-lg" href="#">
+<span class="material-symbols-outlined" data-icon="payments" style="font-variation-settings: 'FILL' 1;">payments</span>
+<span class="font-body-md">Санхүү</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-on-tertiary-fixed-variant hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-body-md">Тохиргоо</span>
+</a>
+</nav>
+<div class="p-4 border-t border-outline-variant">
+<div class="flex items-center gap-3 p-2 rounded-xl hover:bg-surface-container-low transition-colors cursor-pointer">
+<img alt="Admin User Avatar" class="w-10 h-10 rounded-full border border-outline-variant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzrD8Z8SFzZfS_Ag8K9w10agZB0SWxX4xs56C1qcYVV-zTT83Gatt00STB-VjkoXjpvJdaZ7Cu7usri0Ph7zYi2eO_9sh8mbreb7s2F7pS5ahDJQMXjMSd2iKqhZdteH-bVFtupkGres5o4ngrcjX-Aw0KtraTAfWux_MKYzuc0jjlT2AuoN7_ekuWqd29Lpd2vyAAIVgncbtRxbbsYfvHj7c_KnfVrvETbahgkZEay2d_lSyI_00iE0Xs16pxDgy4OqAtUA3QLzM"/>
+<div class="flex-1 min-w-0">
+<p class="font-label-sm font-bold truncate">Админ Хэрэглэгч</p>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-wider">Super Admin</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 flex flex-col min-w-0 bg-background overflow-hidden">
+<!-- TopNavBar -->
+<header class="bg-surface dark:bg-inverse-surface border-b border-outline-variant dark:border-outline sticky top-0 z-40 h-16 flex items-center shrink-0">
+<div class="flex justify-between items-center w-full px-gutter max-w-container-max mx-auto">
+<div class="flex items-center gap-4 flex-1">
+<div class="relative w-full max-w-md focus-within:ring-2 focus-within:ring-primary focus-within:ring-opacity-50 rounded-lg transition-all">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant" data-icon="search">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container border border-outline-variant rounded-lg text-body-md focus:outline-none focus:border-primary" placeholder="Гүйлгээ эсвэл захиалга хайх... (⌘K)" type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4 border-r border-outline-variant pr-6">
+<button class="relative p-2 text-on-surface-variant hover:text-primary transition-all">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-1 right-1 w-2 h-2 bg-error rounded-full ring-2 ring-surface"></span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-primary transition-all">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+</button>
+</div>
+<button class="bg-primary text-on-primary px-4 py-2 rounded-lg font-label-sm flex items-center gap-2 hover:opacity-90 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[20px]" data-icon="add">add</span>
+                            Бараа нэмэх
+                        </button>
+</div>
+</div>
+</header>
+<!-- Scrollable Content -->
+<div class="flex-1 overflow-y-auto p-gutter">
+<div class="max-w-container-max mx-auto space-y-gutter">
+<!-- Analytics Header -->
+<div class="flex justify-between items-end">
+<div>
+<h2 class="font-display-lg text-display-lg text-on-surface leading-tight">Санхүүгийн тайлан</h2>
+<p class="text-on-surface-variant font-body-md mt-1">Нийт ашиг болон зардлын нарийвчилсан задаргаа</p>
+</div>
+<div class="flex gap-3">
+<button class="bg-surface border border-outline-variant px-4 py-2 rounded-lg text-on-surface-variant font-label-sm flex items-center gap-2 hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="calendar_today">calendar_today</span>
+                                Сүүлийн 30 хоног
+                            </button>
+<button class="bg-surface border border-outline-variant px-4 py-2 rounded-lg text-on-surface-variant font-label-sm flex items-center gap-2 hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="download">download</span>
+                                Татаж авах
+                            </button>
+</div>
+</div>
+<!-- KPI Grid (Bento Style) -->
+<div class="bento-grid">
+<!-- Revenue -->
+<div class="col-span-12 md:col-span-4 bg-surface border border-outline-variant rounded-xl p-6 relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 opacity-10 transition-opacity group-hover:opacity-20">
+<span class="material-symbols-outlined text-[80px]" data-icon="payments">payments</span>
+</div>
+<p class="text-on-surface-variant font-label-sm uppercase tracking-wider mb-2">Орлого (Revenue)</p>
+<div class="flex items-baseline gap-2">
+<span class="font-display-lg text-display-lg text-on-surface">₮12,450,000</span>
+<span class="text-green-600 font-label-sm flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px]" data-icon="trending_up">trending_up</span>
+                                    12.5%
+                                </span>
+</div>
+<div class="mt-4 h-1 bg-surface-container rounded-full">
+<div class="h-full bg-primary rounded-full" style="width: 75%;"></div>
+</div>
+</div>
+<!-- Purchase Cost -->
+<div class="col-span-12 md:col-span-4 bg-surface border border-outline-variant rounded-xl p-6 group">
+<p class="text-on-surface-variant font-label-sm uppercase tracking-wider mb-2">Хятадаас авсан зардал</p>
+<div class="flex items-baseline gap-2">
+<span class="font-display-lg text-display-lg text-on-surface">₮6,820,000</span>
+<span class="text-error font-label-sm flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px]" data-icon="trending_up">trending_up</span>
+                                    5.2%
+                                </span>
+</div>
+<div class="flex gap-1 mt-4">
+<div class="flex-1 h-1 bg-surface-variant"></div>
+<div class="flex-1 h-1 bg-surface-variant"></div>
+<div class="flex-1 h-1 bg-surface-variant"></div>
+<div class="flex-1 h-1 bg-primary"></div>
+<div class="flex-1 h-1 bg-primary"></div>
+</div>
+</div>
+<!-- Net Profit -->
+<div class="col-span-12 md:col-span-4 row-span-2 bg-primary-container text-on-primary-container border border-primary rounded-xl p-8 flex flex-col justify-between shadow-xl shadow-primary/10">
+<div>
+<div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-[28px]" data-icon="account_balance_wallet" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+</div>
+<p class="font-label-sm uppercase tracking-wider opacity-80 mb-2">Цэвэр ашиг (Net Profit)</p>
+<h3 class="font-display-lg text-[40px] font-extrabold">₮3,954,200</h3>
+<p class="font-body-md mt-4 opacity-90 leading-relaxed">Таны энэ сарын цэвэр ашиг өнгөрсөн сараас ₮820,000-аар өссөн байна.</p>
+</div>
+<button class="mt-8 bg-white text-primary px-6 py-3 rounded-lg font-bold hover:bg-secondary-fixed transition-colors">
+                                Дэлгэрэнгүй тайлан
+                            </button>
+</div>
+<!-- Shipping Cost -->
+<div class="col-span-12 md:col-span-4 bg-surface border border-outline-variant rounded-xl p-6">
+<div class="flex justify-between items-start mb-4">
+<div>
+<p class="text-on-surface-variant font-label-sm uppercase tracking-wider mb-1">Тээврийн зардал</p>
+<span class="font-headline-md text-headline-md font-bold">₮1,245,800</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="local_shipping">local_shipping</span>
+</div>
+<div class="text-[11px] text-on-surface-variant flex items-center gap-2">
+<span class="inline-block w-2 h-2 rounded-full bg-blue-500"></span>
+                                Олон улсын ачаа тээвэр
+                            </div>
+</div>
+<!-- Delivery Cost -->
+<div class="col-span-12 md:col-span-4 bg-surface border border-outline-variant rounded-xl p-6">
+<div class="flex justify-between items-start mb-4">
+<div>
+<p class="text-on-surface-variant font-label-sm uppercase tracking-wider mb-1">Хүргэлтийн зардал</p>
+<span class="font-headline-md text-headline-md font-bold">₮430,000</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="delivery_dining">delivery_dining</span>
+</div>
+<div class="text-[11px] text-on-surface-variant flex items-center gap-2">
+<span class="inline-block w-2 h-2 rounded-full bg-orange-400"></span>
+                                Хотын доторх түгээлт
+                            </div>
+</div>
+</div>
+<!-- Detailed Breakdown Table -->
+<div class="bg-surface border border-outline-variant rounded-xl overflow-hidden">
+<div class="p-6 border-b border-outline-variant flex justify-between items-center">
+<h3 class="font-headline-md text-headline-md font-bold">Ашгийн нарийвчилсан задаргаа</h3>
+<div class="flex gap-2">
+<div class="bg-surface-container px-3 py-1.5 rounded-lg border border-outline-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant" data-icon="filter_list">filter_list</span>
+<span class="text-body-md">Шүүлтүүр</span>
+</div>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead class="bg-background">
+<tr>
+<th class="px-6 py-4 font-label-sm text-on-surface-variant border-b border-outline-variant">Захиалгын ID</th>
+<th class="px-6 py-4 font-label-sm text-on-surface-variant border-b border-outline-variant">Бүтээгдэхүүн</th>
+<th class="px-6 py-4 font-label-sm text-on-surface-variant border-b border-outline-variant text-right">Зардал (CN)</th>
+<th class="px-6 py-4 font-label-sm text-on-surface-variant border-b border-outline-variant text-right">Тээвэр &amp; Хүргэлт</th>
+<th class="px-6 py-4 font-label-sm text-on-surface-variant border-b border-outline-variant text-right">Зарах үнэ</th>
+<th class="px-6 py-4 font-label-sm text-on-surface-variant border-b border-outline-variant text-right">Ашиг</th>
+<th class="px-6 py-4 font-label-sm text-on-surface-variant border-b border-outline-variant text-center">Төлөв</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-4 font-label-sm font-bold">#ORD-29402</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 bg-surface-variant rounded border border-outline-variant overflow-hidden flex-shrink-0">
+<img alt="Product Image" class="w-full h-full object-cover" data-alt="A premium minimalist smartwatch with a sleek silver metallic casing and a white silicone strap, presented on a light gray marble surface with soft natural lighting and elegant shadows for a professional e-commerce product display." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHYrPGxMPWytnT_P7Wfj32GujT6hkUTEkfFSvKv-WwWoCP-GqY-L_9YWJlY8ZpwTFtrFM1sibTQaRe7WIkVAGO3XFJDpAnul9V6mvkxsgmXHQmQY4oQEZND1NHwoQ_vz22ebq_Ta8GS4xH2zWEbt6KaUIpa_pDUrPT6fz1S1RTp9-8kmfi_pvKTm18nSntdjTY_9Xc4RFXI8UTGAUHYZ-YvFikbi9XmRItRqJXkFjBxGpN2OHFfWnBf0b-cP5Lq4BRnccmLQe3qKs"/>
+</div>
+<span class="text-body-md font-medium truncate max-w-[150px]">Ухаалаг цаг V2</span>
+</div>
+</td>
+<td class="px-6 py-4 text-body-md text-right">₮125,000</td>
+<td class="px-6 py-4 text-body-md text-right">₮15,000</td>
+<td class="px-6 py-4 text-body-md text-right font-bold">₮210,000</td>
+<td class="px-6 py-4 text-body-md text-right text-green-600 font-bold">₮70,000</td>
+<td class="px-6 py-4 text-center">
+<span class="px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-green-50 text-green-600 border border-green-100">Биелсэн</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="px-6 py-4 font-label-sm font-bold">#ORD-29403</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 bg-surface-variant rounded border border-outline-variant overflow-hidden flex-shrink-0">
+<img alt="Product Image" class="w-full h-full object-cover" data-alt="High-fidelity over-ear studio headphones in matte black, with plush leather cushions, resting on a wooden desk next to a modern laptop. The atmosphere is professional and moody, with cool blue ambient lighting highlight details." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLcWWwKPhN2rNmpxC5XpIBGrYGPm9HM7mwk3aEDGo7hMv8j_YWa99lRT1d12LtVI21OqalieE2Es4WlF7JHo-BQ-w-lamr9RomL5sICEA8mnuLw07cxBFo4YVLLqVuY6c5huPN-rK_bCud1a0UXT0rrbhr7LCnhnjWjXZ3bue5-8X_5EI1OMyqSnV9r3I8QGlHrO6u2SBsU349lX9haQTG10MOUpXtBBNnk821Q4e3RwhHNSZwYIhOwrHT5Dy7BRv3XK6aPpJjnPA"/>
+</div>
+<span class="text-body-md font-medium truncate max-w-[150px]">Чихэвч Studio PRO</span>
+</div>
+</td>
+<td class="px-6 py-4 text-body-md text-right">₮450,000</td>
+<td class="px-6 py-4 text-body-md text-right">₮45,000</td>
+<td class="px-6 py-4 text-body-md text-right font-bold">₮620,000</td>
+<td class="px-6 py-4 text-body-md text-right text-green-600 font-bold">₮125,000</td>
+<td class="px-6 py-4 text-center">
+<span class="px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-blue-50 text-blue-600 border border-blue-100">Тээвэрлэлтэнд</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="px-6 py-4 font-label-sm font-bold">#ORD-29404</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 bg-surface-variant rounded border border-outline-variant overflow-hidden flex-shrink-0">
+<img alt="Product Image" class="w-full h-full object-cover" data-alt="A pair of vibrant red sports running shoes displayed on a sleek glass platform in a high-tech athletic showroom. Dramatic spotlighting creates sharp reflections and emphasizes the texture and dynamic shape of the footwear." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuTer0W38x2IdeAuJf7iqxTfafokpJfuUscw_Ue7VJTUVk-hgTA15zwLiHthDTDrabpLzHnElallGUOIrCxFUvpIk5b2mynd8VZD4nLROLvbhw15dIFm1rq89gsFkw8OFVUFAfjvvukWu205IoAAL3GjJetcaSgS-AWyfkJWsag-26w46C61hvku34EkgeG8LrLyFTxGiDmN_UmIU_5cnumXo_qq1y6ZsH9s0cRFWzfCXLjHHQm2-zyo4Xoui7-ERmWhJ_kXCMHH4"/>
+</div>
+<span class="text-body-md font-medium truncate max-w-[150px]">Гүйлтийн гутал</span>
+</div>
+</td>
+<td class="px-6 py-4 text-body-md text-right">₮85,000</td>
+<td class="px-6 py-4 text-body-md text-right">₮22,000</td>
+<td class="px-6 py-4 text-body-md text-right font-bold">₮145,000</td>
+<td class="px-6 py-4 text-body-md text-right text-green-600 font-bold">₮38,000</td>
+<td class="px-6 py-4 text-center">
+<span class="px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-yellow-50 text-yellow-700 border border-yellow-100">Хүлээгдэж буй</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="px-6 py-4 font-label-sm font-bold">#ORD-29405</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 bg-surface-variant rounded border border-outline-variant overflow-hidden flex-shrink-0">
+<img alt="Product Image" class="w-full h-full object-cover" data-alt="A vintage-style instant camera in cream white and light pastel colors, placed on a light wooden table surrounded by polaroid photos and a soft morning sunbeam coming through a window, creating a warm, nostalgic, and high-end aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoLHElD7Bp0hQd7j6nAg0srhB-YnvhgrkohrxnHYXIYHTpAl_Px_CGjYf-RyN6TNd2LJ6mtcChuPee2_fYCBs7s5Oid7A5FFbruXIbx4hmpzcJBpjdXM0svHmGXHvfGTb7Rsf7j1Ar3xk_1uF4mjC7n-pXN_VDpOGLUzj5SRaxU0g2WFXZY-jz_iu_bPIhiaeBOm3kFJPtgLmXKAVji6UPX4CRETR8Kn82L4l6-YCqQ7Fo-K4N9_4f-uuADCqsInL0gF0aq1DSgbE"/>
+</div>
+<span class="text-body-md font-medium truncate max-w-[150px]">Зургийн аппарат</span>
+</div>
+</td>
+<td class="px-6 py-4 text-body-md text-right">₮210,000</td>
+<td class="px-6 py-4 text-body-md text-right">₮25,000</td>
+<td class="px-6 py-4 text-body-md text-right font-bold">₮310,000</td>
+<td class="px-6 py-4 text-body-md text-right text-green-600 font-bold">₮75,000</td>
+<td class="px-6 py-4 text-center">
+<span class="px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-green-50 text-green-600 border border-green-100">Биелсэн</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-4 border-t border-outline-variant flex justify-between items-center bg-background">
+<p class="text-label-sm text-on-surface-variant">Нийт 152 гүйлгээнээс 1-4 харуулж байна</p>
+<div class="flex gap-1">
+<button class="w-8 h-8 flex items-center justify-center rounded border border-outline-variant hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center rounded bg-primary text-on-primary font-label-sm">1</button>
+<button class="w-8 h-8 flex items-center justify-center rounded border border-outline-variant hover:bg-surface-container transition-colors font-label-sm">2</button>
+<button class="w-8 h-8 flex items-center justify-center rounded border border-outline-variant hover:bg-surface-container transition-colors font-label-sm">3</button>
+<button class="w-8 h-8 flex items-center justify-center rounded border border-outline-variant hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Micro-interaction Script -->
+<script>
+        // Handle command+k focusing
+        document.addEventListener('keydown', (e) => {
+            if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+                e.preventDefault();
+                document.querySelector('input[type="text"]').focus();
+            }
+        });
+
+        // Simple animation on row click
+        const tableRows = document.querySelectorAll('tbody tr');
+        tableRows.forEach(row => {
+            row.addEventListener('mousedown', () => {
+                row.style.transform = 'scale(0.995)';
+                row.style.transition = 'transform 0.1s ease';
+            });
+            row.addEventListener('mouseup', () => {
+                row.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body></html>

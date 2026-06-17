@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+
+<html lang="mn"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Тохиргоо | Admin Panel</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed-variant": "#454748",
+                    "secondary-fixed": "#eaddff",
+                    "inverse-surface": "#27313f",
+                    "surface-container-low": "#eff4ff",
+                    "on-primary-container": "#dad7ff",
+                    "surface-dim": "#d0dbed",
+                    "on-error": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-fixed-dim": "#c5c7c8",
+                    "background": "#f8f9ff",
+                    "on-secondary-container": "#fffbff",
+                    "tertiary-fixed": "#e1e3e4",
+                    "on-surface": "#121c2a",
+                    "primary": "#3525cd",
+                    "secondary-container": "#8a4cfc",
+                    "on-surface-variant": "#464555",
+                    "tertiary-container": "#5e6061",
+                    "surface-variant": "#d9e3f6",
+                    "on-secondary-fixed-variant": "#5a00c6",
+                    "primary-fixed": "#e2dfff",
+                    "outline-variant": "#c7c4d8",
+                    "error": "#ba1a1a",
+                    "inverse-primary": "#c3c0ff",
+                    "error-container": "#ffdad6",
+                    "surface-container-high": "#dee9fc",
+                    "on-secondary-fixed": "#25005a",
+                    "surface-bright": "#f8f9ff",
+                    "on-tertiary-fixed": "#191c1d",
+                    "surface-tint": "#4d44e3",
+                    "surface": "#f8f9ff",
+                    "tertiary": "#46494a",
+                    "secondary-fixed-dim": "#d2bbff",
+                    "secondary": "#712ae2",
+                    "on-error-container": "#93000a",
+                    "on-secondary": "#ffffff",
+                    "on-primary-fixed-variant": "#3323cc",
+                    "primary-container": "#4f46e5",
+                    "outline": "#777587",
+                    "primary-fixed-dim": "#c3c0ff",
+                    "on-background": "#121c2a",
+                    "inverse-on-surface": "#eaf1ff",
+                    "on-primary-fixed": "#0f0069",
+                    "on-primary": "#ffffff",
+                    "surface-container-highest": "#d9e3f6",
+                    "surface-container": "#e6eeff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-container": "#dadbdc"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-md": "16px",
+                    "gutter": "24px",
+                    "stack-lg": "24px",
+                    "sidebar-width": "280px",
+                    "margin-mobile": "16px",
+                    "container-max": "1440px",
+                    "stack-sm": "8px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Inter"],
+                    "display-lg-mobile": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "body-md": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "headline-md": ["Inter"]
+            },
+            "fontSize": {
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "display-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-background text-on-surface min-h-screen flex overflow-hidden">
+<!-- SideNavBar Shell -->
+<aside class="hidden md:flex flex-col w-sidebar-width h-screen sticky top-0 left-0 bg-surface border-r border-outline-variant">
+<div class="px-6 py-8 flex flex-col gap-2">
+<h1 class="font-headline-md text-headline-md font-bold text-primary">Admin Panel</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Pre-order System</p>
+</div>
+<nav class="flex-1 px-2 space-y-1">
+<!-- Dashboard -->
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 rounded-lg group" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-body-md text-body-md">Хянах самбар</span>
+</a>
+<!-- Products -->
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 rounded-lg group" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="font-body-md text-body-md">Бараа бүтээгдэхүүн</span>
+</a>
+<!-- Orders -->
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 rounded-lg group" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+<span class="font-body-md text-body-md">Захиалга</span>
+</a>
+<!-- Customers -->
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 rounded-lg group" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-body-md text-body-md">Харилцагчид</span>
+</a>
+<!-- Finance -->
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 rounded-lg group" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-body-md text-body-md">Санхүү</span>
+</a>
+<!-- Settings - ACTIVE -->
+<a class="flex items-center gap-3 px-4 py-3 bg-secondary-container text-on-secondary-container border-l-4 border-primary font-bold transition-all duration-100 scale-95 rounded-r-lg" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-body-md text-body-md">Тохиргоо</span>
+</a>
+</nav>
+<div class="p-4 border-t border-outline-variant mt-auto">
+<div class="flex items-center gap-3 px-2 py-3 rounded-lg bg-surface-container">
+<img alt="Admin User Avatar" class="w-10 h-10 rounded-full border border-outline-variant" data-alt="A professional headshot of a Mongolian business administrator with a clean-cut appearance. The individual is wearing a modern charcoal suit and is set against a soft-focus office background with warm, natural lighting. The image style is sharp and high-resolution, conveying trust, authority, and professional efficiency in a corporate setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCykNNjWK4MiGQFQJ3BbaAxTykwMfXzqi2sbmGGV8afmZfaLFAvhSi6Ema-Wxb3_Qoe5Ic77R95bwJ8mHZl_QeU71eaHFMGkEW5ApYsZbXFmYmSfskFB1qe1Q_SaXy5OPNTrLEtbaYdgoVCGeYJc0AfK8JWMe9Yagb_O5Mhs-EgXEopspylOgB6rYuCejzO9frcmscD541bHCOzx_XEqb967bXEBHu7yjuZziBssvNiSh-QDdj0b36AZ-OaNzpGVvUoG1cLaN8Mpkc"/>
+<div class="overflow-hidden">
+<p class="font-body-md text-body-md font-bold truncate">Админ</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant truncate">Систем хариуцагч</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 flex flex-col h-screen overflow-y-auto">
+<!-- TopNavBar Shell -->
+<header class="bg-surface sticky top-0 z-40 border-b border-outline-variant">
+<div class="flex justify-between items-center w-full px-gutter py-4 max-w-container-max mx-auto">
+<div class="flex items-center gap-4 flex-1">
+<button class="md:hidden p-2 hover:bg-surface-container rounded-full">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<div class="relative w-full max-w-md focus-within:ring-2 focus-within:ring-primary focus-within:ring-opacity-50 rounded-lg">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-lowest border border-outline-variant rounded-lg text-body-md focus:outline-none" placeholder="Хайлт... (⌘K)" type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2">
+<button class="p-2 text-on-surface-variant hover:text-primary transition-all relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-1 right-1 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-primary transition-all">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+</button>
+</div>
+<button class="hidden lg:flex items-center gap-2 px-4 py-2 bg-primary text-on-primary font-bold rounded-lg hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined">add</span>
+<span class="font-body-md text-body-md">Бараа нэмэх</span>
+</button>
+<div class="h-8 w-[1px] bg-outline-variant"></div>
+<div class="flex items-center gap-2">
+<span class="font-body-md text-body-md font-bold hidden sm:block">Ecommerce Admin</span>
+<img alt="Admin Profile" class="w-8 h-8 rounded-full bg-surface-container-high" data-alt="A minimalist profile icon representing an administrative user, featuring a clean, geometric silhouette of a person. The color palette is composed of soft blues and grays, set against a pristine white background. The lighting is bright and even, reinforcing a sense of modern, professional clarity and streamlined digital enterprise management." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBd60k10tQ3fcwrREpF7c45Q5ik4WzT0STV3tLFmx199HFizSxZ-iYTSfUI-sUqN0v79F8y4wngDaqIei9zmF0cjJF125hN-ibXtvvfRTEz-By_suHAfpAFqyr-6VNV6VQPgWuA_Q6ilnIzjNxLlN8M8qy7Du1pP2vWRU1kYbzat6TpBGBV7BmiMiolHARDb-2-7j2yt0UXQkvssi_f2_yl0bZ2_4oh29-2jJT-g1PxvI_QDqu2mzuMFJggs4Ln_b5N6b-06JqCcrA"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Settings Page Content -->
+<div class="flex-1 w-full max-w-container-max mx-auto p-gutter animate-in fade-in duration-700">
+<header class="mb-stack-lg flex justify-between items-end">
+<div>
+<h2 class="font-display-lg text-display-lg font-extrabold text-on-surface tracking-tight">Тохиргоо</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Дэлгүүрийн ерөнхий мэдээлэл болон төлбөрийн нөхцөлүүдийг энд тохируулна уу.</p>
+</div>
+<div class="flex gap-stack-md">
+<button class="px-6 py-2.5 bg-surface border border-outline-variant text-on-surface font-bold rounded-lg hover:bg-surface-container-low transition-all">Цуцлах</button>
+<button class="px-6 py-2.5 bg-primary text-on-primary font-bold rounded-lg hover:shadow-lg transition-all">Хадгалах</button>
+</div>
+</header>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Bento Grid Left: Primary Settings -->
+<div class="lg:col-span-8 space-y-gutter">
+<!-- General Information Card -->
+<section class="bg-surface border border-outline-variant rounded-xl p-8 shadow-sm transition-all hover:shadow-md">
+<div class="flex items-center gap-3 mb-6">
+<div class="p-2 bg-primary-fixed rounded-lg text-on-primary-fixed-variant">
+<span class="material-symbols-outlined">storefront</span>
+</div>
+<h3 class="font-headline-md text-headline-md font-bold">Дэлгүүрийн мэдээлэл</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-stack-lg">
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant block">Дэлгүүрийн нэр</label>
+<input class="w-full px-4 py-3 bg-surface-container-lowest border border-outline-variant rounded-lg font-body-md focus:ring-2 focus:ring-primary focus:border-primary transition-all" type="text" value="Zaya Shop Mongolia"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant block">Холбоо барих утас</label>
+<div class="flex items-center border border-outline-variant rounded-lg bg-surface-container-lowest focus-within:ring-2 focus-within:ring-primary overflow-hidden">
+<span class="px-4 py-3 bg-surface-container-low text-on-surface-variant border-r border-outline-variant font-body-md">+976</span>
+<input class="flex-1 px-4 py-3 bg-transparent border-none focus:ring-0 font-body-md" type="text" value="99110022"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Financial & Delivery Settings -->
+<section class="bg-surface border border-outline-variant rounded-xl p-8 shadow-sm">
+<div class="flex items-center gap-3 mb-6">
+<div class="p-2 bg-secondary-fixed rounded-lg text-on-secondary-fixed-variant">
+<span class="material-symbols-outlined">payments</span>
+</div>
+<h3 class="font-headline-md text-headline-md font-bold">Төлбөр ба Хүргэлт</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-stack-lg">
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant block">Хүргэлтийн төлбөр (₮)</label>
+<div class="relative">
+<input class="w-full pl-4 pr-10 py-3 bg-surface-container-lowest border border-outline-variant rounded-lg font-body-md focus:ring-2 focus:ring-primary" type="number" value="5000"/>
+<span class="absolute right-4 top-1/2 -translate-y-1/2 text-on-surface-variant font-bold">₮</span>
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant block">Урьдчилгаа төлбөрийн хувь (%)</label>
+<div class="relative">
+<input class="w-full pl-4 pr-10 py-3 bg-surface-container-lowest border border-outline-variant rounded-lg font-body-md focus:ring-2 focus:ring-primary" type="number" value="30"/>
+<span class="absolute right-4 top-1/2 -translate-y-1/2 text-on-surface-variant font-bold">%</span>
+</div>
+</div>
+</div>
+<div class="mt-stack-lg space-y-4">
+<label class="font-label-sm text-label-sm text-on-surface-variant block">Банкны мэдээлэл</label>
+<div class="space-y-stack-md">
+<div class="flex gap-4 p-4 bg-surface-container rounded-lg border border-outline-variant group">
+<img alt="Khan Bank Logo" class="w-12 h-12 rounded bg-white object-contain p-1" data-alt="A clean, minimalist logo of a major Mongolian commercial bank, featuring iconic red and white branding elements. The logo is centered on a pure white, square canvas with high-key lighting to emphasize sharp edges and corporate professionalism. The style is modern and high-resolution, suggesting a secure and trustworthy financial institution for administrative bank transfers." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzPqsRlXPhs2hrfh2etjlLiUMwROWVrJ86SHs_noJjxqFR5F7p8WMt4yldJ9UJ145TeTowTBzEZ0FhdcyHlZymOK0fqRdFP0Gsyg76aG5P9GGjpGtF6kjpCjKSM7tnvX-6y5vMYg3AylrTBp8ABw2bTBVQQqlN4mA1Mdi0Ahb0lggRbM_pE_FwNBJyTEDYP2hxRyDe8bBe-mqerWx1gRf5pMTB8EjMa3kkFSt8Ml_iJXHduXi6RdsrFZMmtGT6l6r4bm9SR2bTniY"/>
+<div class="flex-1">
+<p class="font-body-md text-body-md font-bold">Хаан Банк</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Дансны дугаар: 5000123456</p>
+</div>
+<button class="text-error opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+<button class="w-full py-3 border-2 border-dashed border-outline-variant rounded-lg text-on-surface-variant hover:border-primary hover:text-primary transition-all flex items-center justify-center gap-2 font-bold">
+<span class="material-symbols-outlined">add_circle</span>
+                                    Данс нэмэх
+                                </button>
+</div>
+</div>
+</section>
+</div>
+<!-- Sidebar Bento Column -->
+<div class="lg:col-span-4 space-y-gutter">
+<!-- Advanced Visual Feedback Card -->
+<div class="bg-surface-container-highest border border-outline-variant rounded-xl overflow-hidden shadow-sm">
+<div class="relative h-32 w-full overflow-hidden">
+
+<div class="absolute inset-0 flex items-center justify-center bg-black/10">
+<span class="material-symbols-outlined text-white text-4xl" data-weight="fill">shield_lock</span>
+</div>
+</div>
+<div class="p-6">
+<h4 class="font-body-md text-body-md font-bold text-on-surface">Системийн төлөв</h4>
+<p class="text-label-sm font-label-sm text-on-surface-variant mt-1">Таны мэдээлэл хамгаалагдсан бөгөөд систем хэвийн ажиллаж байна.</p>
+<div class="mt-4 flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+<span class="text-label-sm font-label-sm text-green-700">Идэвхтэй холбогдсон</span>
+</div>
+</div>
+</div>
+<!-- Helper Widget -->
+<div class="bg-white border border-outline-variant rounded-xl p-6 shadow-sm">
+<h4 class="font-body-md text-body-md font-bold mb-4">Тусламж хэрэгтэй юу?</h4>
+<div class="space-y-4">
+<a class="flex items-center justify-between group" href="#">
+<span class="text-body-md font-body-md text-on-surface-variant group-hover:text-primary transition-colors">Зааварчилгаа үзэх</span>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:translate-x-1 transition-transform">chevron_right</span>
+</a>
+<a class="flex items-center justify-between group" href="#">
+<span class="text-body-md font-body-md text-on-surface-variant group-hover:text-primary transition-colors">Аюулгүй байдлын зөвлөмж</span>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:translate-x-1 transition-transform">chevron_right</span>
+</a>
+</div>
+<div class="mt-6 pt-6 border-t border-outline-variant text-center">
+<button class="w-full py-2 bg-on-tertiary-fixed-variant text-white font-bold rounded-lg hover:opacity-90 transition-opacity">
+                                Техник тусламж авах
+                            </button>
+</div>
+</div>
+<!-- Quick View Card -->
+<div class="bg-primary-container p-6 rounded-xl text-on-primary shadow-lg">
+<h4 class="font-body-md text-body-md font-bold mb-2">Нийт ашиг</h4>
+<div class="flex items-baseline gap-1">
+<span class="text-2xl font-extrabold">24,500,000</span>
+<span class="text-label-sm font-bold opacity-80">₮</span>
+</div>
+<p class="text-label-sm font-label-sm mt-1 opacity-70">Сүүлийн 30 хоногт</p>
+<div class="mt-4 bg-white/10 h-1 w-full rounded-full overflow-hidden">
+<div class="bg-white h-full w-[75%]"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Meta -->
+<footer class="mt-stack-lg pt-stack-lg border-t border-outline-variant flex flex-col md:flex-row justify-between items-center text-on-surface-variant font-label-sm text-label-sm gap-4">
+<p>© 2024 Ecommerce Admin Panel. All rights reserved.</p>
+<div class="flex gap-stack-lg">
+<a class="hover:text-primary transition-colors" href="#">Үйлчилгээний нөхцөл</a>
+<a class="hover:text-primary transition-colors" href="#">Нууцлалын бодлого</a>
+</div>
+</footer>
+</div>
+</main>
+<!-- Mobile Bottom Navigation (Only visible on mobile) -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 bg-surface border-t border-outline-variant px-6 py-3 flex justify-between items-center z-50">
+<a class="flex flex-col items-center gap-1 text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px] font-bold">Нүүр</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="text-[10px] font-bold">Захиалга</span>
+</a>
+<div class="relative -top-8 bg-primary p-4 rounded-full text-white shadow-xl">
+<span class="material-symbols-outlined text-2xl">add</span>
+</div>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="text-[10px] font-bold">Хэрэглэгч</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined" data-weight="fill">settings</span>
+<span class="text-[10px] font-bold">Тохиргоо</span>
+</a>
+</nav>
+<script>
+        // Simple Interaction: Change input borders on focus via classes
+        const inputs = document.querySelectorAll('input');
+        inputs.forEach(input => {
+            input.addEventListener('focus', () => {
+                input.parentElement.classList.add('shadow-md');
+            });
+            input.addEventListener('blur', () => {
+                input.parentElement.classList.remove('shadow-md');
+            });
+        });
+
+        // Command + K Shortcut Simulation
+        document.addEventListener('keydown', (e) => {
+            if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+                e.preventDefault();
+                document.querySelector('input[placeholder*="Хайлт"]').focus();
+            }
+        });
+    </script>
+</body></html>

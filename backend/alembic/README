@@ -1,0 +1,6 @@
+Alembic migrations for the FastAPI backend.
+
+Create the first migration after configuring PostgreSQL:
+
+    alembic revision --autogenerate -m "initial schema"
+    alembic upgrade head
