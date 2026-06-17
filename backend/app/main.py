@@ -39,6 +39,9 @@ def health() -> dict[str, str]:
 
 @app.on_event("startup")
 def startup() -> None:
+    if settings.app_env == "production":
+        return
+
     Base.metadata.create_all(bind=engine)
     ensure_schema()
     with SessionLocal() as db:
